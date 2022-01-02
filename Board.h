@@ -22,6 +22,7 @@ class Board {
     Board ();
     int k;
     bool flag;
+    bool change;
     int i;
     int j;
     int ran1;
