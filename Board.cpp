@@ -60,10 +60,10 @@ using namespace std;
             if(tiles[ran1][ran2]== ' '){
                 flag = true;
                 int ran3 = rand()%3;
-
                 tiles[ran1][ran2] = char(int(65+ran3));
             }
         }
+        checkGameOver(tiles);
 
     }
     

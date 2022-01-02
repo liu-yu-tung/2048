@@ -9,6 +9,9 @@ g++ Board.cpp Game.cpp
 ## How to play
 Enter `w`, `a`, `s` and `d`, with respect to upward, leftward, downward and rightward to move the board.
 ## Exit the game
+Press `Ctrl+C` to exit the game.
+
+
 
 
 

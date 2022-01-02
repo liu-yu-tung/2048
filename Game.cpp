@@ -35,29 +35,22 @@ using namespace std;
     }
     void Game::printScore() const{
         cout << this->score << endl;
-
     }
 
     void Game::start(){
         //this->board->displayBoard(this->board->tiles);
         int _score;
-        while(true){
+        while(!(this->board->checkGameOver(this->board->tiles))){
+            
             _score = this->board->moveBoard(board->tiles, this->readInput());
             this->addScore(_score);
-        }
 
-       
+        }
+        cout << "Game Over"<< endl;
     }
 
 int main(){
-    Direction a;
-    
-    Game b;
-    b.start();
-
-    
-    return 0;
+    Game *game = new Game();
+    game->start();
+    return 0 ;
 }
-
-
-
