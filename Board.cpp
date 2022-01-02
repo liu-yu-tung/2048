@@ -95,11 +95,9 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
     if(dir == UP){
        
         for(int j = 0; j<4; j++){
-
             for(int i=0; i<4; i++){
                 char num1 = tiles[j][i];
                 if(num1 != ' ') {
-              
                     for(int k=1; i+k<4; k++){
                         if(tiles[j][i+k] == num1){
                             tiles[j][i+k] = ' ';
@@ -124,8 +122,6 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                         }
                         else if(tiles[j+k][i] != ' '){
                                 k = 4;
-     
-                        
                         }
                         
                     
@@ -263,8 +259,6 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                             tiles[j][i] = char(int(num1)+1);
                             reward += pow(2, int(num1)-63);
 
-                            
-
                             if(j == 0){
                                 if(tiles[2][i] != ' '){
                                     j = 2;
@@ -279,7 +273,6 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                                 }
                             
                             }
-                        
                         }
                         else if(tiles[j+k][i] != ' '){
                                 k = 4;

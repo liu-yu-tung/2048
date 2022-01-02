@@ -2,7 +2,6 @@
 #include "Board.h"
 #include "Game.h"
 
-
 using namespace std;
 
     Game::Game(){
@@ -27,20 +26,25 @@ using namespace std;
         else 
             return INVALID;
     }
-    void Game::addScore(int score){
-        this->score += score;
+    void Game::addScore(int _score){
+        this->score += _score;
+        
+        this->board->displayBoard(this->board->tiles);
+        this->printScore();
         
     }
     void Game::printScore() const{
-        
+        cout << this->score << endl;
 
     }
 
     void Game::start(){
-        
-        this->board->displayBoard(this->board->tiles);
-        int score = this->board->moveBoard(board, this->board());
-        //addScore();
+        //this->board->displayBoard(this->board->tiles);
+        int _score;
+        while(true){
+            _score = this->board->moveBoard(board->tiles, this->readInput());
+            this->addScore(_score);
+        }
 
        
     }
@@ -49,9 +53,7 @@ int main(){
     Direction a;
     
     Game b;
-    cout << b.score << endl;
-    char c[4][4];
-    //b.board->displayBoard(c);
+    b.start();
 
     
     return 0;
