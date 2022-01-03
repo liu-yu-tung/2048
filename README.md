@@ -15,7 +15,7 @@ Enter `w`, `a`, `s` or `d`, with respect to upward, leftward, downward and right
 Press `^C` to exit the game or wait still game over.
 
 # Demo
-![screenchot1](https://github.com/queeniiee02/2048/blob/main/screenshot1.png?raw=true){:height="700px"}
+![screenchot1](https://github.com/queeniiee02/2048/blob/main/screenshot1.png?raw=true){:height="50%" width="50%"}
 
 
 
