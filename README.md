@@ -14,6 +14,9 @@ Enter `w`, `a`, `s` or `d`, with respect to upward, leftward, downward and right
 ## Exit the game
 Press `^C` to exit the game or wait still game over.
 
+# Demo
+
+
 
 
 
