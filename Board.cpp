@@ -4,6 +4,7 @@
 
 #include "Board.h"
 
+
 using namespace std;
 
     Board::Board(){
@@ -20,10 +21,10 @@ using namespace std;
             else tiles[ran1][ran2] = 'A';
         
         }
-        displayBoard(tiles);
+        //displayBoard(tiles);
     }
 
-    void Board::displayBoard(const char tiles[4][4]) const{
+    void displayBoard(char tiles[4][4]) {
         cout << "+---+---+---+---+" << endl;
     
             for(int j=0; j<4; j++){ 
@@ -81,7 +82,7 @@ using namespace std;
                         new_line[i] = line[i+k];
                         k = 4;
                         pt += pow(2, int(new_line[i]-64));
-                        change = true;
+                        //change = true;
 
                     }
                 }
@@ -92,7 +93,7 @@ using namespace std;
                         new_line[i] = char(int(line[i+k]+1));
                         pt += pow(2, int(new_line[i]-64));
                         k = 4;
-                        change = true;
+                        //change = true;
                     }
                     else if((line[i+k] != line[i]) && (line[i+k]!= ' ')){
                         new_line[i] = line[i];
@@ -105,10 +106,10 @@ using namespace std;
         
     }
     
-int Board::moveBoard(char tiles[4][4], Direction dir) {
+int moveBoard(char tiles[4][4], Direction dir) {
 
     int reward = 0;
-    change = false;
+    //change = false;
     
     bool found = false;
     if(dir == UP){
@@ -122,7 +123,7 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                             tiles[j][i+k] = ' ';
                             tiles[j][i] = char(int(num1)+1);
                             reward += pow(2, int(num1)-63);
-                            change = true;
+                            // = true;
 
                             if(i == 0){
                                 if(tiles[j][2] != ' '){
@@ -132,15 +133,17 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                                         tiles[j][i] = char(int(num1)+1);
                                         tiles[j][i+1] = ' ';
                                         reward += pow(2, int(num1)-63);
-                                        change = true;
+                                        //change = true;
+                                        //i = 4;
                                     }
                                 
                                 }
                             
                             }
+                            i = 4;
                         
                         }
-                        else if(tiles[j+k][i] != ' '){
+                        else if(tiles[j][i+k] != ' '){
                                 k = 4;
                         }
                         
@@ -163,7 +166,7 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                             //cout << 
                             tiles[j][i] = tiles[j][i+k];
                             tiles[j][i+k] = ' ';
-                            change = true;
+                            //change = true;
                             
                             k = 4;
                             i --;
@@ -195,7 +198,7 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                             tiles[j][i] = char(int(num1)+1);
                             tiles[j][i-k] = ' ';
                             reward += pow(2, int(num1)-63);
-                            change = true;
+                            //change = true;
 
                             if(i == 3){
                                 if(tiles[j][1] != ' '){
@@ -205,15 +208,17 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                                         tiles[j][i] = char(int(num1)+1);
                                         tiles[j][i-1] = ' ';
                                         reward += pow(2, int(num1)-63);
-                                        change = true;
+                                        //i = -1;
+                                        //change = true;
                                     }
                                 
                                 }
                             
                             }
+                            i = -1;
                         
                         }
-                        else if(tiles[j+k][i] != ' '){
+                        else if(tiles[j][i-k] != ' '){
                                 k = 4;
                                 
                                 
@@ -244,7 +249,7 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                             
                             k = 4;
                             i ++;
-                            change = true;
+                            
                         
                         }
                     
@@ -281,8 +286,7 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                             tiles[j+k][i] = ' ';
                             tiles[j][i] = char(int(num1)+1);
                             reward += pow(2, int(num1)-63);
-                            change = true;
-
+                             
                             if(j == 0){
                                 if(tiles[2][i] != ' '){
                                     j = 2;
@@ -291,13 +295,16 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                                         tiles[j][i] = char(int(num2)+1);
                                         tiles[j+1][i] = ' ';
                                         reward += pow(2, int(num2)-63);
-                                        change = true;
+                                        //j = 4;
+                                        
                                     
                                     }
                                 
                                 }
                             
                             }
+                            j = 4;
+
                         }
                         else if(tiles[j+k][i] != ' '){
                                 k = 4;
@@ -328,7 +335,7 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                             tiles[j+k][i] = ' ';
                             k = 4;
                             j --;
-                            change = true;
+                            
                             
                             //k--;                    //????
                         
@@ -364,9 +371,6 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                             tiles[j-k][i] = ' ';
                             tiles[j][i] = char(int(num1)+1);
                             reward += pow(2, int(num1)-63);
-                            change = true;
-
-                            
 
                             if(j == 3){
                                 if(tiles[1][i] != ' '){
@@ -376,14 +380,15 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                                         tiles[j][i] = char(int(num2)+1);
                                         tiles[j-1][i] = ' ';
                                         reward += pow(2, int(num2)-63);
-                                        change = true;
+                                        //j = -1;
+                                         
                                     
                                     }
                                 
                                 }
                             
                             }
-                        
+                            j = -1;
                         }
                         else if(tiles[j-k][i] != ' '){
                                 k = 4;
@@ -414,7 +419,7 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                             tiles[j-k][i] = ' ';
                             k = 4;
                             j ++;
-                            change = true;
+                            
                             
                             //k--;                    //????
                         
@@ -431,9 +436,7 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
     
     }
     
-    if (change){
-        newTile();
-    }
+    
     return reward;
 
 }
@@ -491,3 +494,32 @@ bool Board::checkGameOver(char tiles[4][4]) const{
 	else return true;
 
 }
+
+int main(){
+    char tiles[4][4];
+		char ch;
+		for(int j=0;j<4;j++){
+			for(int i=0;i<4;i++){
+				cin >> ch;
+				if(ch=='*')tiles[i][j]=' ';
+				else tiles[i][j]=ch;
+			}
+		}
+		char new_tiles[4][4];
+		for(int j=0;j<4;j++)
+			for(int i=0;i<4;i++)
+				new_tiles[i][j]=' ';
+				
+		int dir_int;
+		Direction dir;
+		cin >> dir_int;
+		if(dir_int == 0)dir = UP;
+		else if(dir_int == 1)dir = DOWN;
+		else if(dir_int == 2)dir = LEFT;
+		else if(dir_int == 3)dir = RIGHT;
+		else dir = INVALID;
+
+		int reward = moveBoard(tiles, dir);
+		displayBoard(tiles);
+		cout << reward << endl;
+ }
