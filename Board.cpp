@@ -138,9 +138,10 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                                 }
                             
                             }
+                            i = 4;
                         
                         }
-                        else if(tiles[j+k][i] != ' '){
+                        else if(tiles[j][i+k] != ' '){
                                 k = 4;
                         }
                         
@@ -211,9 +212,10 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                                 }
                             
                             }
+                            i = -1;
                         
                         }
-                        else if(tiles[j+k][i] != ' '){
+                        else if(tiles[j][i-k] != ' '){
                                 k = 4;
                                 
                                 
@@ -298,6 +300,8 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                                 }
                             
                             }
+                            j = 4;
+
                         }
                         else if(tiles[j+k][i] != ' '){
                                 k = 4;
@@ -378,12 +382,13 @@ int Board::moveBoard(char tiles[4][4], Direction dir) {
                                         reward += pow(2, int(num2)-63);
                                         change = true;
                                     
-                                    }
                                 
                                 }
                             
                             }
                         
+                            }
+                            j = -1;
                         }
                         else if(tiles[j-k][i] != ' '){
                                 k = 4;
