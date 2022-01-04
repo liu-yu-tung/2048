@@ -49,8 +49,3 @@ using namespace std;
         cout << "Game Over"<< endl;
     }
 
-int main(){
-    Game *game = new Game();
-    game->start();
-    return 0 ;
-}
