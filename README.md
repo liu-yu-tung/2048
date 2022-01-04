@@ -21,14 +21,3 @@ Press `^C` to exit the game or wait still game over.
 
 ## Game over
 <img src="https://github.com/queeniiee02/2048/blob/main/screenshot2.png" height="800">
-
-
-
-
-
-
-
-
-
-
-
