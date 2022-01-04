@@ -134,14 +134,16 @@ int moveBoard(char tiles[4][4], Direction dir) {
                                         tiles[j][i+1] = ' ';
                                         reward += pow(2, int(num1)-63);
                                         //change = true;
+                                        //i = 4;
                                     }
                                 
                                 }
                             
                             }
+                            i = 4;
                         
                         }
-                        else if(tiles[j+k][i] != ' '){
+                        else if(tiles[j][i+k] != ' '){
                                 k = 4;
                         }
                         
@@ -206,15 +208,17 @@ int moveBoard(char tiles[4][4], Direction dir) {
                                         tiles[j][i] = char(int(num1)+1);
                                         tiles[j][i-1] = ' ';
                                         reward += pow(2, int(num1)-63);
+                                        //i = -1;
                                         //change = true;
                                     }
                                 
                                 }
                             
                             }
+                            i = -1;
                         
                         }
-                        else if(tiles[j+k][i] != ' '){
+                        else if(tiles[j][i-k] != ' '){
                                 k = 4;
                                 
                                 
@@ -283,7 +287,6 @@ int moveBoard(char tiles[4][4], Direction dir) {
                             tiles[j][i] = char(int(num1)+1);
                             reward += pow(2, int(num1)-63);
                              
-
                             if(j == 0){
                                 if(tiles[2][i] != ' '){
                                     j = 2;
@@ -292,6 +295,7 @@ int moveBoard(char tiles[4][4], Direction dir) {
                                         tiles[j][i] = char(int(num2)+1);
                                         tiles[j+1][i] = ' ';
                                         reward += pow(2, int(num2)-63);
+                                        //j = 4;
                                         
                                     
                                     }
@@ -299,6 +303,8 @@ int moveBoard(char tiles[4][4], Direction dir) {
                                 }
                             
                             }
+                            j = 4;
+
                         }
                         else if(tiles[j+k][i] != ' '){
                                 k = 4;
@@ -365,9 +371,6 @@ int moveBoard(char tiles[4][4], Direction dir) {
                             tiles[j-k][i] = ' ';
                             tiles[j][i] = char(int(num1)+1);
                             reward += pow(2, int(num1)-63);
-                            
-
-                            
 
                             if(j == 3){
                                 if(tiles[1][i] != ' '){
@@ -377,6 +380,7 @@ int moveBoard(char tiles[4][4], Direction dir) {
                                         tiles[j][i] = char(int(num2)+1);
                                         tiles[j-1][i] = ' ';
                                         reward += pow(2, int(num2)-63);
+                                        //j = -1;
                                          
                                     
                                     }
@@ -384,7 +388,7 @@ int moveBoard(char tiles[4][4], Direction dir) {
                                 }
                             
                             }
-                        
+                            j = -1;
                         }
                         else if(tiles[j-k][i] != ' '){
                                 k = 4;
